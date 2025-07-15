@@ -1,0 +1,1 @@
+﻿global using SecretaryTelegramAIBot.Application.Contracts;

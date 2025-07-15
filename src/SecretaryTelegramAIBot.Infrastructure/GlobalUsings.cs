@@ -1,0 +1,6 @@
+﻿global using SecretaryTelegramAIBot.Infrastructure.ConfigurationOptions;
+global using SecretaryTelegramAIBot.Infrastructure.HostedServices;
+global using SecretaryTelegramAIBot.Infrastructure.Persistence;
+global using SecretaryTelegramAIBot.Infrastructure.Repositories;
+global using SecretaryTelegramAIBot.Infrastructure.Services;
+global using SecretaryTelegramAIBot.Infrastructure.Abstractions;

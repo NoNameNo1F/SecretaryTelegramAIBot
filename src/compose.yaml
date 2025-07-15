@@ -1,0 +1,9 @@
+﻿version: '3.8'
+services:
+  secretarytelegramaibot.api:
+    image: secretarytelegramaibot.api
+    build:
+      context: .
+      dockerfile: Hosts/SecretaryTelegramAIBot.API/Dockerfile
+    ports:
+      - "7670:7670"
