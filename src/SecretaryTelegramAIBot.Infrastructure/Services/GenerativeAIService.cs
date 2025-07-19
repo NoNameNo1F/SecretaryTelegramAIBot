@@ -1,8 +1,9 @@
 ﻿using GenerativeAI.Web;
+using SecretaryTelegramAIBot.Application.Services;
 
 namespace SecretaryTelegramAIBot.Infrastructure.Services;
 
-public class GenerativeAIService
+public class GenerativeAIService : IGenerativeAIService
 {
     private readonly IGenerativeAiService _generativeAiService;
 
@@ -14,6 +15,7 @@ public class GenerativeAIService
     public async Task<string> GenerateText(string prompt, CancellationToken cancellation)
     {
         var response = await _generativeAiService.CreateInstance().GenerateContentAsync(prompt, cancellation);
+
         return response.Text;
     }
 }

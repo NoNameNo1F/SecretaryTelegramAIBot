@@ -24,13 +24,13 @@ public abstract class PollingServiceBase<TReceiverService> : BackgroundService
 
     private async Task DoWork(CancellationToken stoppingToken)
     {
-        while(!stoppingToken.IsCancellationRequested)
+        while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
                 using var scope = _serviceProvider.CreateScope();
                 var receiver = scope.ServiceProvider.GetRequiredService<TReceiverService>();
-                
+
                 await receiver.ReceiveAsync(stoppingToken);
             }
             catch (Exception ex)
