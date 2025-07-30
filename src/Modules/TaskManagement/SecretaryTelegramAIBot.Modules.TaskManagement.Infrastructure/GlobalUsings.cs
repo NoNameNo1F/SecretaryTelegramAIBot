@@ -1,0 +1,6 @@
+﻿global using SecretaryTelegramAIBot.Modules.TaskManagement.Infrastructure.ConfigurationOptions;
+global using SecretaryTelegramAIBot.Modules.TaskManagement.Infrastructure.HostedServices;
+global using SecretaryTelegramAIBot.Modules.TaskManagement.Infrastructure.Persistence;
+global using SecretaryTelegramAIBot.Modules.TaskManagement.Infrastructure.Repositories;
+global using SecretaryTelegramAIBot.Modules.TaskManagement.Infrastructure.Services;
+global using SecretaryTelegramAIBot.Modules.TaskManagement.Infrastructure.Abstractions;

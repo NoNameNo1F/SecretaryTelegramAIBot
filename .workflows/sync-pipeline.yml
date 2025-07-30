@@ -1,0 +1,32 @@
+﻿name: $(Build.SourceBranchName)-$(Date:yyyyMMdd)$(Rev:.r)
+
+variables:
+  - group: 7UdQ1VSS
+
+trigger:
+  branches:
+    include:
+      - "*"
+
+pool:
+  name: Default
+  demands:
+    - Agent.Name -equals $(AGENT_NAME)
+
+stages:
+  - stage: SyncToGithub
+    displayName: "Sync to github"
+    jobs:
+      - job: GitSync
+        displayName: "Sync all to github"
+        steps:
+          - checkout: self
+            fetchDepth: 0
+          - bash: |
+              set -e
+              git config --global user.email $(GH_EMAIL)
+              git config --global user.name $(GH_NAME)
+              BRANCH_NAME=$(echo "$(Build.SourceBranch)" | sed 's/refs\/heads\///')
+              echo "Pushing branch $(Build.SourceBranchName) to GitHub"
+              git push https://$(GITHUB_PAT)@github.com/$(SYNC_ORGANIZATION)/$(SYNC_REPO).git HEAD:refs/heads/$BRANCH_NAME
+            displayName: "Git push to remote repository"
